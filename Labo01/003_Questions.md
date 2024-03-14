@@ -78,4 +78,33 @@ PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
 Run ifconfig (or ip addr show) to find the internal IP address of the EC2 instance. This is likely a private IP address.
 Compare this to the IP address you used to ping the instance, which is likely a public IP address.
 The difference is because AWS uses Network Address Translation (NAT) to map public IP addresses to private ones within its network, enabling instances to communicate with the internet.
+
+bitnami@ip-10-0-7-10:~$ ip add
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: ens5: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000
+    link/ether 06:c7:cd:21:bf:ff brd ff:ff:ff:ff:ff:ff
+    altname enp0s5
+    inet 10.0.7.10/28 brd 10.0.7.15 scope global dynamic ens5
+       valid_lft 2358sec preferred_lft 2358sec
+    inet6 fe80::4c7:cdff:fe21:bfff/64 scope link 
+       valid_lft forever preferred_lft forever
+
+devopsteam07@ip-10-0-0-5:~$ ip add
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enX0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc fq_codel state UP group default qlen 1000
+    link/ether 06:d9:0b:3d:1a:85 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.5/28 metric 100 brd 10.0.0.15 scope global dynamic enX0
+       valid_lft 2414sec preferred_lft 2414sec
+    inet6 fe80::4d9:bff:fe3d:1a85/64 scope link
+       valid_lft forever preferred_lft forever
 ```
