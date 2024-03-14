@@ -29,6 +29,9 @@ On the second website, you can observe a time between about 10 to 30 seconds to 
 ```
 Time Difference: You can find the time difference by comparing the local time in Switzerland (CEST or CET depending on the time of the year) with the time reported by the instance. Use the date command in the instance to check its time.
 Once connected, run the date command to display the current date and time set on the instance: date
+```
+
+```
 devopsteam07@ip-10-0-0-5:/sys/hypervisor$ date
 Thu Mar 14 10:36:06 UTC 2024
 ```
@@ -37,6 +40,7 @@ Thu Mar 14 10:36:06 UTC 2024
 ```
 Hypervisor Name: Run cat /sys/hypervisor/type on the EC2 instance to find out the name of the hypervisor.
 ```
+
 ```
 devopsteam07@ip-10-0-0-5:~$ cat /sys/hypervisor/type
 xen
