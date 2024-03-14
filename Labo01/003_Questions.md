@@ -17,7 +17,7 @@ Time for Instance to Reach 'Running' State: The time it takes for an EC2 instanc
 
 On the second website, you can observe a time between about 10 to 30 seconds to launch a new instance.
 ```
-[AWS EC2 Instance Life](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
+[AWS EC2 Instance Life](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)  
 [EC2 Launch Instance](https://www.martysweet.co.uk/ec2-launch-times/)
  
  
