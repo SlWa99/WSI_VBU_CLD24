@@ -26,16 +26,31 @@ Time for Instance to Reach 'Running' State: The time it takes for an EC2 instanc
 ```
 Time Difference: You can find the time difference by comparing the local time in Switzerland (CEST or CET depending on the time of the year) with the time reported by the instance. Use the date command in the instance to check its time.
 Once connected, run the date command to display the current date and time set on the instance: date
+devopsteam07@ip-10-0-0-5:/sys/hypervisor$ date
+Thu Mar 14 10:36:06 UTC 2024
 ```
  
     * What's the name of the hypervisor?
 ```
 Hypervisor Name: Run cat /sys/hypervisor/type on the EC2 instance to find out the name of the hypervisor.
+devopsteam07@ip-10-0-0-5:~$ cat /sys/hypervisor/type
+xen
 ```
  
     * How much free space does the disk have?
 ```
 Disk Space: Use the df -h command to check the disk space. It will list the available, used, and total space on all mounted filesystems.
+devopsteam07@ip-10-0-0-5:/sys/hypervisor$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            476M     0  476M   0% /dev
+tmpfs            98M  500K   97M   1% /run
+/dev/xvda1      7.7G  1.4G  5.9G  19% /
+tmpfs           488M     0  488M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/xvda15     124M   12M  113M  10% /boot/efi
+tmpfs            98M     0   98M   0% /run/user/1019
+tmpfs            98M     0   98M   0% /run/user/1009
+tmpfs            98M     0   98M   0% /run/user/1007
 ```
  
  
