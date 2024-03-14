@@ -16,6 +16,7 @@ The largest instance types can be part of the u- series, like u-24tb1.metal, off
 Time for Instance to Reach 'Running' State: The time it takes for an EC2 instance to transition to the 'running' state varies. Generally, it takes a few minutes, but this can be influenced by the instance type, the AMI used, the configuration, and the current load on AWS. When you launch an instance, it enters the pending state. The instance type that you specified at launch determines the hardware of the host computer for your instance. We use the Amazon Machine Image (AMI) you specified at launch to boot the instance. After the instance is ready, it enters the running state. As soon as your instance transitions to the running state, you're billed for each second, with a one-minute minimum, that you keep the instance running, even if the instance remains idle and you don't connect to it.
 ```
 [AWS EC2 Instance Life](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
+[EC2 Laucnh Instance](https://www.martysweet.co.uk/ec2-launch-times/)
  
  
 * Using the commands to explore the machine listed earlier, respond to
@@ -33,6 +34,8 @@ Thu Mar 14 10:36:06 UTC 2024
     * What's the name of the hypervisor?
 ```
 Hypervisor Name: Run cat /sys/hypervisor/type on the EC2 instance to find out the name of the hypervisor.
+```
+```
 devopsteam07@ip-10-0-0-5:~$ cat /sys/hypervisor/type
 xen
 ```
@@ -40,6 +43,9 @@ xen
     * How much free space does the disk have?
 ```
 Disk Space: Use the df -h command to check the disk space. It will list the available, used, and total space on all mounted filesystems.
+```
+
+```
 devopsteam07@ip-10-0-0-5:/sys/hypervisor$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 udev            476M     0  476M   0% /dev
@@ -61,7 +67,9 @@ tmpfs            98M     0   98M   0% /run/user/1007
 ```
 If you cannot ping the instance, it might be due to security group settings that block ICMP traffic (used for ping). Modify the instance's security group to allow ICMP traffic.
 After changing the settings, you can ping the instance and record the round-trip times using the ping command.
+```
 
+```
 devopsteam07@ip-10-0-0-5:~$ ping 10.0.7.10 -c 5
 PING 10.0.7.10 (10.0.7.10) 56(84) bytes of data.
 64 bytes from 10.0.7.10: icmp_seq=1 ttl=64 time=0.362 ms
@@ -85,7 +93,9 @@ rtt min/avg/max/mdev = 0.324/0.340/0.362/0.012 ms
 Run ifconfig (or ip addr show) to find the internal IP address of the EC2 instance. This is likely a private IP address.
 Compare this to the IP address you used to ping the instance, which is likely a public IP address.
 The difference is because AWS uses Network Address Translation (NAT) to map public IP addresses to private ones within its network, enabling instances to communicate with the internet.
+```
 
+```
 bitnami@ip-10-0-7-10:~$ ip add
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -100,7 +110,8 @@ bitnami@ip-10-0-7-10:~$ ip add
        valid_lft 2358sec preferred_lft 2358sec
     inet6 fe80::4c7:cdff:fe21:bfff/64 scope link 
        valid_lft forever preferred_lft forever
-
+```
+```
 devopsteam07@ip-10-0-0-5:~$ ip add
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
