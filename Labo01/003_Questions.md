@@ -15,7 +15,7 @@ The largest instance types can be part of the u- series, like u-24tb1.metal, off
 ```
 Time for Instance to Reach 'Running' State: The time it takes for an EC2 instance to transition to the 'running' state varies. Generally, it takes a few minutes, but this can be influenced by the instance type, the AMI used, the configuration, and the current load on AWS. When you launch an instance, it enters the pending state. The instance type that you specified at launch determines the hardware of the host computer for your instance. We use the Amazon Machine Image (AMI) you specified at launch to boot the instance. After the instance is ready, it enters the running state. As soon as your instance transitions to the running state, you're billed for each second, with a one-minute minimum, that you keep the instance running, even if the instance remains idle and you don't connect to it.
 
-On the second website, you can observe a time between about 10 to 30 seconds to launch a new instances.
+On the second website, you can observe a time between about 10 to 30 seconds to launch a new instance.
 ```
 [AWS EC2 Instance Life](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
 [EC2 Launch Instance](https://www.martysweet.co.uk/ec2-launch-times/)
