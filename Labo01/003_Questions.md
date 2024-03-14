@@ -61,11 +61,18 @@ tmpfs            98M     0   98M   0% /run/user/1007
 ```
 If you cannot ping the instance, it might be due to security group settings that block ICMP traffic (used for ping). Modify the instance's security group to allow ICMP traffic.
 After changing the settings, you can ping the instance and record the round-trip times using the ping command.
-bitnami@ip-10-0-7-10:~$ ping 10.0.0.5 -c 5
-PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
 
---- 10.0.0.5 ping statistics ---
-5 packets transmitted, 0 received, 100% packet loss, time 4092ms
+devopsteam07@ip-10-0-0-5:~$ ping 10.0.7.10 -c 5
+PING 10.0.7.10 (10.0.7.10) 56(84) bytes of data.
+64 bytes from 10.0.7.10: icmp_seq=1 ttl=64 time=0.362 ms
+64 bytes from 10.0.7.10: icmp_seq=2 ttl=64 time=0.324 ms
+64 bytes from 10.0.7.10: icmp_seq=3 ttl=64 time=0.341 ms
+64 bytes from 10.0.7.10: icmp_seq=4 ttl=64 time=0.337 ms
+64 bytes from 10.0.7.10: icmp_seq=5 ttl=64 time=0.339 ms
+
+--- 10.0.7.10 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4081ms
+rtt min/avg/max/mdev = 0.324/0.340/0.362/0.012 ms
 ```
  
 * Determine the IP address seen by the operating system in the EC2
