@@ -14,8 +14,8 @@ Note : stop the instance before
 |Description|Same as name value|
 
 ```bash
-// Stop the instance
 [INPUT]
+// Stop the instance
 aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId, State.Name]'
 
 [OUTPUT]
@@ -38,8 +38,8 @@ aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId, St
 [INPUT]
 aws ec2 stop-instances --instance-ids i-0129fd22ea338471a
 
-// Create AMI
 [INPUT]
+// Create AMI
 aws ec2 create-image \
     --instance-id i-0129fd22ea338471a \
     --name "AMI_DRUPAL_DEVOPSTEAM07_LABO02_RDS" \
@@ -224,21 +224,40 @@ ssh bitnami@localhost -p 2224 -i CLD_KEY_DRUPAL_DEVOPSTEAM07.pem
 ```sql
 [INPUT]
 //sql string connection from A
+mysql -h dbi-devopsteam07.cshki92s4w5p.eu-west-3.rds.amazonaws.com -u admin -p
+Password > DEVOPSTEAM07!
+SHOW GRANTS FOR 'bn_drupal'@'10.0.7.0/28';
 
 [OUTPUT]
++--------------------------------------------------------------------------------------------------------------------+
+| Grants for bn_drupal@10.0.7.0/28                                                                                   |
++--------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `bn_drupal`@`10.0.7.0/28` IDENTIFIED BY PASSWORD '*9F13F90673AB88081D439822B7A6454EA6DD45A6' |
+| GRANT ALL PRIVILEGES ON `bitnami_drupal`.* TO `bn_drupal`@`10.0.7.0/28`                                            |
++--------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.000 sec)
 ```
 
 ```sql
 [INPUT]
 //sql string connection from B
+mysql -h dbi-devopsteam07.cshki92s4w5p.eu-west-3.rds.amazonaws.com -u admin -p
+Password > DEVOPSTEAM07!
+SHOW GRANTS FOR 'bn_drupal'@'10.0.7.0/28';
 
 [OUTPUT]
++--------------------------------------------------------------------------------------------------------------------+
+| Grants for bn_drupal@10.0.7.0/28                                                                                   |
++--------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `bn_drupal`@`10.0.7.0/28` IDENTIFIED BY PASSWORD '*9F13F90673AB88081D439822B7A6454EA6DD45A6' |
+| GRANT ALL PRIVILEGES ON `bitnami_drupal`.* TO `bn_drupal`@`10.0.7.0/28`                                            |
++--------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.000 sec)
 ```
 
 ### Check HTTP Accesses
 
 ```bash
-//connection string updated
 [INPUT]
 curl http://localhost:8080
 curl http://localhost:8081
