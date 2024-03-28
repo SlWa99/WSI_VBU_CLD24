@@ -341,6 +341,8 @@ $databases['default']['default'] = array (
 
 $databases['default']['default'] = array (
    [...] 
+   'password' => 'devopsteam07',
+   [...] 
    'host' => 'dbi-devopsteam07.cshki92s4w5p.eu-west-3.rds.amazonaws.com',
    [...] 
 );
