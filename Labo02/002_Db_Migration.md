@@ -10,7 +10,6 @@ In this task you will migrate the Drupal database to the new RDS database instan
 
 ```bash
 [INPUT]
-//help : path /home/bitnami/bitnami_credentials
 bitnami@ip-10-0-7-10:~$ cat /home/bitnami/bitnami_credentials
 
 [OUTPUT]
@@ -29,11 +28,11 @@ Please refer to https://docs.bitnami.com/ for more details.
 
 ```bash
 [INPUT]
-//add string connection
+// Première manière de récupérer les informations de la BDD
 /opt/bitnami/mariadb/bin/mariadb -u bn_drupal -p
 password > 2b9defd18a354804a1d4c4742c252fb39d808c12cfc2046ffc8f31432ae8a060
 MariaDB [(none)]> show databases;
-
+  
 [OUTPUT]
 +--------------------+
 | Database           |
@@ -44,6 +43,7 @@ MariaDB [(none)]> show databases;
 2 rows in set (0.001 sec)
 
 [INPUT]
+// Deuxième manière de récupérer les informations de la BDD
 /opt/bitnami/mariadb/bin/mariadb -u root -p
 Password > vec2PoZB3aQ:
 
@@ -59,12 +59,18 @@ Password > vec2PoZB3aQ:
 | test               |
 +--------------------+
 
+
 [INPUT]
+// Preuve que les deux BDD sont identiques
 MariaDB [(none)]> use bitnami_drupal;
+
+[OUTPUT]
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
 Database changed
+
+[INPUT]
 MariaDB [bitnami_drupal]> show tables;
 
 [OUTPUT]
@@ -155,7 +161,8 @@ MariaDB [bitnami_drupal]> show tables;
 [INPUT]
 mysqldump -u bn_drupal -p bitnami_drupal > dump_file.sql
 
-[OUTPUT]
+[INPUT]
+// Vérification de la localisation du fichier extrait
 > ls
 ```
 
@@ -164,6 +171,7 @@ mysqldump -u bn_drupal -p bitnami_drupal > dump_file.sql
 ```sql
 [INPUT]
 mysql -h dbi-devopsteam07.cshki92s4w5p.eu-west-3.rds.amazonaws.com -u admin -p
+password > DEVOPSTEAM07!
 CREATE DATABASE bitnami_drupal;
 ```
 
@@ -173,7 +181,12 @@ Note : you can do this from the Drupal Instance. Do not forget to set the "-h" p
 
 ```sql
 [INPUT]
+// Import du fichier sql dans la BDD du RDS bitnami_drupal
+mysql -h dbi-devopsteam07.cshki92s4w5p.eu-west-3.rds.amazonaws.com -u admin -p bitnami_drupal < dump_file.sql
+password > DEVOPSTEAM07!
+// Vérification
 mysql -h dbi-devopsteam07.cshki92s4w5p.eu-west-3.rds.amazonaws.com -u admin -p
+password > DEVOPSTEAM07!
 
 [OUTPUT]
 mysql: Deprecated program name. It will be removed in a future release, use '/opt/bitnami/mariadb/bin/mariadb' instead
@@ -186,7 +199,10 @@ Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
+[INPUT]
 MariaDB [(none)]> show databases;
+
+[OUTPUT]
 +--------------------+
 | Database           |
 +--------------------+
@@ -199,12 +215,21 @@ MariaDB [(none)]> show databases;
 +--------------------+
 6 rows in set (0.001 sec)
 
+
+[INPUT]
 MariaDB [(none)]> use bitnami_drupal;
+
+[OUTPUT]
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
 Database changed
+
+
+[INPUT]
 MariaDB [bitnami_drupal]> show tables;
+
+[OUTPUT]
 +----------------------------------+
 | Tables_in_bitnami_drupal         |
 +----------------------------------+
@@ -291,11 +316,9 @@ MariaDB [bitnami_drupal]> show tables;
 
 ```bash
 [INPUT]
-//help : same settings.php as before
 cat /bitnami/drupal/sites/default/settings.php
 
 [OUTPUT]
-//at the end of the file you will find connection string parameters
 $databases['default']['default'] = array (
   'database' => 'bitnami_drupal',
   'username' => 'bn_drupal',
@@ -314,6 +337,7 @@ $databases['default']['default'] = array (
 
 ```
 //settings.php
+// Il faut également penser à changer le mot de passe
 
 $databases['default']['default'] = array (
    [...] 
@@ -332,18 +356,27 @@ Note : only calls from both private subnets must be approved.
 ```sql
 [INPUT]
 mysql -h dbi-devopsteam07.cshki92s4w5p.eu-west-3.rds.amazonaws.com -u admin -p
-CREATE USER bn_drupal@'10.0.7.0/28' IDENTIFIED BY 'devopsteam07';
 
+[INPUT]
+// le nouveau mot de passe est devopsteam07
 MariaDB [(none)]> CREATE USER bn_drupal@'10.0.7.0/28' IDENTIFIED BY 'devopsteam07';
+[OUTPUT]
 Query OK, 0 rows affected (0.005 sec)
 
+[INPUT]
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON bitnami_drupal.* TO 'bn_drupal'@'10.0.7.0/28';
+[OUTPUT]
 Query OK, 0 rows affected (0.003 sec)
 
+[INPUT]
 MariaDB [(none)]> FLUSH PRIVILEGES;
+[OUTPUT]
 Query OK, 0 rows affected (0.001 sec)
 
+[INPUT]
 MariaDB [(none)]> SELECT user, host FROM mysql.user WHERE user = 'bn_drupal';
+
+[OUTPUT]
 +-----------+-------------+
 | User      | Host        |
 +-----------+-------------+
@@ -351,7 +384,11 @@ MariaDB [(none)]> SELECT user, host FROM mysql.user WHERE user = 'bn_drupal';
 +-----------+-------------+
 1 row in set (0.004 sec)
 
+
+[INPUT]
 MariaDB [(none)]> SHOW GRANTS FOR 'bn_drupal'@'10.0.7.0/28';
+
+[OUTPUT]
 +--------------------------------------------------------------------------------------------------------------------+
 | Grants for bn_drupal@10.0.7.0/28                                                                                   |
 +--------------------------------------------------------------------------------------------------------------------+
@@ -359,20 +396,6 @@ MariaDB [(none)]> SHOW GRANTS FOR 'bn_drupal'@'10.0.7.0/28';
 | GRANT ALL PRIVILEGES ON `bitnami_drupal`.* TO `bn_drupal`@`10.0.7.0/28`                                            |
 +--------------------------------------------------------------------------------------------------------------------+
 2 rows in set (0.000 sec)
-```
-
-```sql
-//validation
-[INPUT]
-SHOW GRANTS for 'bn_drupal'@'10.0.[XX].0/[yourMask]]';
-
-[OUTPUT]
-+----------------------------------------------------------------------------------------------------------------------------------+
-| Grants for <yourNewUser>                                                                                                         |
-+----------------------------------------------------------------------------------------------------------------------------------+
-| GRANT USAGE ON *.* TO <yourNewUser> IDENTIFIED BY PASSWORD 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'                           |
-| GRANT ALL PRIVILEGES ON `bitnami_drupal`.* TO <yourNewUser>                                                                      |
-+----------------------------------------------------------------------------------------------------------------------------------+
 ```
 
 ### Validate access (on the drupal instance)
