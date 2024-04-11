@@ -113,7 +113,7 @@ aws ec2 describe-instances \
 
 ```
 ```
-[history](./img/history.jpg)
+[history](./img/history.png)
 
 ## Release Cloud resources
 
