@@ -87,7 +87,7 @@ aws ec2 describe-instances \
 ```
 
 ```
-[history](./img/history.jpg)
+[history](./img/history.png)
 
 [Sample](./img/CLD_AWS_ASG_ACTIVITY_HISTORY.PNG)
 
