@@ -23,7 +23,7 @@ htop
 
 ```
 [INPUT]
-//stress command
+stress --cpu 2 -v --timeout 30s --vm 4 --io 1
 
 [OUTPUT]
 //copy the part representing vCPus, RAM and swap usage
