@@ -35,7 +35,7 @@ stress --cpu 2 -v --timeout 30s --vm 4 --io 1
 ```
 [INPUT]
 ```
-[cpu](./img/cpu.jpg)
+[cpu](./img/cpu.png)
 
 [Sample](./img/CLD_AWS_CLOUDWATCH_CPU_METRICS.PNG)
 
@@ -95,7 +95,7 @@ aws ec2 describe-instances \
 
 ```
 ```
-[cpu](./img/cpu.jpg)
+[cpu](./img/cpu.png)
 
 [Sample](./img/CLD_AWS_CLOUDWATCH_ALARMHIGH_STATS.PNG)
 
@@ -107,11 +107,11 @@ aws ec2 describe-instances \
 ```
 
 ```
-[cpu](./img/cpu.jpg)
+[cpu](./img/cpu.png)
 
 ```
 ```
-[liste](./img/liste_instances.jpg)
+[liste](./img/liste_instances.png)
 
 ```
 ```
