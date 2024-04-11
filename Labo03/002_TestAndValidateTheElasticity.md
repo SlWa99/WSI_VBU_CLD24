@@ -27,7 +27,7 @@ stress --cpu 2 -v --timeout 30s --vm 4 --io 1
 
 [OUTPUT]
 ```
-[stress](./img/stess.jpg)
+[stress](./img/stress.jpg)
 
 * (Scale-IN) Observe the autoscaling effect on your infa
 
