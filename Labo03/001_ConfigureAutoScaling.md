@@ -32,7 +32,38 @@
 
 ```
 [INPUT]
-//cli command
+aws ec2 create-launch-template \
+--launch-template-name LT-DEVOPSTEAM07 \
+--version-description v1.0.0 \
+--launch-template-data '{
+  "ImageId": "[Your Drupal AMI]",
+  "InstanceType": "t3.micro",
+  "KeyName": "[Your key pair name]",
+  "SecurityGroupIds": ["[Your Drupal Security Group]"],
+  "SubnetId": "[Your Subnet A]",
+  "TagSpecifications": [
+    {
+      "ResourceType": "instance",
+      "Tags": [
+        {
+          "Key": "Name",
+          "Value": "LT-DEVOPSTEAM07"
+        }
+      ]
+    }
+  ],
+  "BlockDeviceMappings": [
+    {
+      "DeviceName": "/dev/sda1",
+      "Ebs": {
+        "VolumeSize": 10
+      }
+    }
+  ],
+  "Monitoring": {
+    "Enabled": true
+  }
+}'
 
 [OUTPUT]
 ```
@@ -68,7 +99,30 @@
 
 ```
 [INPUT]
-//cli command
+aws autoscaling create-auto-scaling-group \
+--auto-scaling-group-name ASGRP_DEVOPSTEAM07 \
+--launch-configuration-name LT-DEVOPSTEAM07 \
+--min-size 1 \
+--max-size 4 \
+--desired-capacity 1 \
+--vpc-zone-identifier "subnet-0ce0d90738ee34415, subnet-013e922d28dc16192" \
+--load-balancer-names "ELB-DEVOPSTEAM07" \
+--health-check-type ELB \
+--health-check-grace-period 10 \
+--tags "Key=Name,Value=AUTO_EC2_PRIVATE_DRUPAL_DEVOPSTEAM07"
+
+# Créer la politique de suivi de la cible
+aws autoscaling put-scaling-policy \
+--auto-scaling-group-name ASGRP_DEVOPSTEAM07 \
+--policy-name TTP_DEVOPSTEAM07 \
+--policy-type TargetTrackingScaling \
+--target-tracking-configuration '{
+  "PredefinedMetricSpecification": {
+    "PredefinedMetricType": "ASGAverageCPUUtilization"
+  },
+  "TargetValue": 50,
+  "InstanceWarmup": 30
+}'
 
 [OUTPUT]
 ```
@@ -81,9 +135,49 @@ Test ssh and web access.
 
 ```
 [INPUT]
-//ssh login
+ssh devopsteam07@15.188.43.46 -i CLD_KEY_DMZ_DEVOPSTEAM07.pem -L 2223:10.0.7.4:22
+ssh bitnami@localhost -p 2223 -i CLD_KEY_DRUPAL_DEVOPSTEAM07.pem
 
 [OUTPUT]
+[4:58 PM] Slimani Walid
+The authenticity of host '[localhost]:2223 ([::1]:2223)' can't be established.
+
+ECDSA key fingerprint is SHA256:5kqpXy/fhscyIpMAvdflWSBmsarabVSe4ZshRTHLBEE.
+
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+
+Warning: Permanently added '[localhost]:2223' (ECDSA) to the list of known hosts.
+
+Linux ip-10-0-7-4 5.10.0-28-cloud-amd64 #1 SMP Debian 5.10.209-2 (2024-01-31) x86_64
+ 
+The programs included with the Debian GNU/Linux system are free software;
+
+the exact distribution terms for each program are described in the
+
+individual files in /usr/share/doc/*/copyright.
+ 
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+
+permitted by applicable law.
+
+       ___ _ _                   _
+
+      | _ |_) |_ _ _  __ _ _ __ (_)
+
+      | _ \ |  _| ' \/ _` | '  \| |
+
+      |___/_|\__|_|_|\__,_|_|_|_|_|
+ 
+  *** Welcome to the Bitnami package for Drupal 10.2.3-1        ***
+
+  *** Documentation:  https://docs.bitnami.com/aws/apps/drupal/ ***
+
+  ***                 https://docs.bitnami.com/aws/             ***
+
+  *** Bitnami Forums: https://github.com/bitnami/vms/           ***
+
+Last login: Thu Mar 28 13:11:03 2024 from 10.0.0.5
+Bitnami package for Drupal for AWS Cloud
 ```
 
 ```
