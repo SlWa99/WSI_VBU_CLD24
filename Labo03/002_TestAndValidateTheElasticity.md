@@ -16,8 +16,8 @@
 htop
 
 [OUTPUT]
-[htop] (./img/htop.jpg)
 ```
+[htop](./img/htop.jpg)
 
 ### Stress your instance
 
@@ -26,16 +26,17 @@ htop
 stress --cpu 2 -v --timeout 30s --vm 4 --io 1
 
 [OUTPUT]
-[stress] (./img/stess.jpg)
 ```
+[stress](./img/stess.jpg)
 
 * (Scale-IN) Observe the autoscaling effect on your infa
 
 
 ```
 [INPUT]
-[cpu] (./img/cpu.jpg)
 ```
+[cpu](./img/cpu.jpg)
+
 [Sample](./img/CLD_AWS_CLOUDWATCH_CPU_METRICS.PNG)
 
 ```
@@ -86,13 +87,16 @@ aws ec2 describe-instances \
 ```
 
 ```
-[history] (./img/history.jpg)
+
 ```
+[history](./img/history.jpg)
+
 [Sample](./img/CLD_AWS_ASG_ACTIVITY_HISTORY.PNG)
 
 ```
-//TODO screenshot of the cloud watch alarm target tracking
 ```
+[cpu](./img/cpu.jpg)
+
 [Sample](./img/CLD_AWS_CLOUDWATCH_ALARMHIGH_STATS.PNG)
 
 
@@ -101,16 +105,17 @@ aws ec2 describe-instances \
 [Change the default cooldown period](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html)
 
 ```
-[cpu] (./img/cpu.jpg)
-```
 
 ```
-[liste] (./img/liste_instances.jpg)
-```
+[cpu](./img/cpu.jpg)
 
 ```
-[history] (./img/history.jpg)
 ```
+[liste](./img/liste_instances.jpg)
+
+```
+```
+[history](./img/history.jpg)
 
 ## Release Cloud resources
 
