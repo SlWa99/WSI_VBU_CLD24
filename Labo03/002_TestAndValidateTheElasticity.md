@@ -93,7 +93,7 @@ aws ec2 describe-instances \
 
 ```
 ```
-[cpu](./img/cpu.png)
+[alarm](./img/alarm.jpg)
 
 [Sample](./img/CLD_AWS_CLOUDWATCH_ALARMHIGH_STATS.PNG)
 
