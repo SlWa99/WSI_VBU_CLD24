@@ -47,9 +47,43 @@ htop
 ```
 //TODO Validate that the various instances have been distributed between the two available az.
 [INPUT]
-//aws cli command
+aws ec2 describe-instances \
+    --query "Reservations[*].Instances[*].[InstanceId,Placement.AvailabilityZone]" \
+    --filters "Name=tag:aws:autoscaling:groupName,Values=ASGRP_DEVOPSTEAM07"
 
 [OUTPUT]
+[
+    [
+        [
+            "i-0c5437dc716fe2336",
+            "eu-west-3a"
+        ]
+    ],
+    [
+        [
+            "i-04c584ac766f70234",
+            "eu-west-3a"
+        ]
+    ],
+    [
+        [
+            "i-06cea7e6570c47e5a",
+            "eu-west-3a"
+        ]
+    ],
+    [
+        [
+            "i-0a39ef2c793930599",
+            "eu-west-3b"
+        ]
+    ],
+    [
+        [
+            "i-068becc36fd0b2956",
+            "eu-west-3b"
+        ]
+    ]
+]
 ```
 
 ```
