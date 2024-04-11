@@ -179,7 +179,4 @@ permitted by applicable law.
 Last login: Thu Mar 28 13:11:03 2024 from 10.0.0.5
 Bitnami package for Drupal for AWS Cloud
 ```
-
-```
-//screen shot, web access (login)
-```
+ [Capture d'écran du test ssh](./img/test_ssh.jpg)
