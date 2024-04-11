@@ -102,18 +102,6 @@ aws ec2 describe-instances \
 
 [Change the default cooldown period](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html)
 
-```
-
-```
-[cpu](./img/cpu.png)
-
-```
-```
-[liste](./img/liste_instances.png)
-
-```
-```
-[history](./img/history.png)
 
 ## Release Cloud resources
 
