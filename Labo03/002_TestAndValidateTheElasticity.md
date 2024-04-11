@@ -16,7 +16,7 @@
 htop
 
 [OUTPUT]
-//copy the part representing vCPus, RAM and swap usage
+[htop] (./img/htop.jpg)
 ```
 
 ### Stress your instance
@@ -26,8 +26,7 @@ htop
 stress --cpu 2 -v --timeout 30s --vm 4 --io 1
 
 [OUTPUT]
-//copy the part representing vCPus, RAM and swap usage
-//tip : use two ssh sessions....
+[stress] (./img/stess.jpg)
 ```
 
 * (Scale-IN) Observe the autoscaling effect on your infa
@@ -35,12 +34,12 @@ stress --cpu 2 -v --timeout 30s --vm 4 --io 1
 
 ```
 [INPUT]
-//Screen shot from cloud watch metric
+[cpu] (./img/cpu.jpg)
 ```
 [Sample](./img/CLD_AWS_CLOUDWATCH_CPU_METRICS.PNG)
 
 ```
-//TODO screenshot of ec2 instances list (running state)
+[4 instances] (./img/four_instances.jpg)
 ```
 [Sample](./img/CLD_AWS_EC2_LIST.PNG)
 
@@ -87,7 +86,7 @@ aws ec2 describe-instances \
 ```
 
 ```
-//TODO screenshot of the activity history
+[history] (./img/history.jpg)
 ```
 [Sample](./img/CLD_AWS_ASG_ACTIVITY_HISTORY.PNG)
 
@@ -102,15 +101,15 @@ aws ec2 describe-instances \
 [Change the default cooldown period](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html)
 
 ```
-//TODO screenshot from cloud watch metric
+[cpu] (./img/cpu.jpg)
 ```
 
 ```
-//TODO screenshot of ec2 instances list (terminated state)
+[liste] (./img/liste_instances.jpg)
 ```
 
 ```
-//TODO screenshot of the activity history
+[history] (./img/history.jpg)
 ```
 
 ## Release Cloud resources
