@@ -40,8 +40,8 @@ stress --cpu 2 -v --timeout 30s --vm 4 --io 1
 [Sample](./img/CLD_AWS_CLOUDWATCH_CPU_METRICS.PNG)
 
 ```
-[4 instances] (./img/four_instances.jpg)
 ```
+[4 instances](./img/four_instances.png)
 [Sample](./img/CLD_AWS_EC2_LIST.PNG)
 
 ```
