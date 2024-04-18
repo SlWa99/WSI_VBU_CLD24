@@ -84,7 +84,11 @@ Deliverables:
 ```
 //TODO - Commit and publish the servlet in your repo, in the 'labo4' directory.
 ```
+Dans le fichier ![java](figures/DatastoreWrite.java)
 
 ```
 //TODO - Copy a screenshot of the local and the App Engine console with the Datastore Viewer.
 ```
+![screenshot](figures/local and the App Engine console with the Datastore Viewer.png)
+
+
