@@ -105,7 +105,8 @@ Le fichier appengine-web.xml définit les configurations de base nécessaires po
     `index.jsp` spotted in `web.xml`. What is its use ?
 
     ```
-    //TODO
+*Réponse Val*   
+Le fichier index.jsp est généralement utilisé comme la page d'accueil par défaut d'une application web. Lorsqu'un utilisateur accède à la racine de l'application, le conteneur de servlets redirige automatiquement vers index.jsp s'il est configuré comme la page d'accueil dans le fichier web.xml.
     ```
 
 ---
