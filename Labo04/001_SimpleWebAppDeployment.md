@@ -56,7 +56,15 @@ Create a simple web application as follows.
    `HelloAppEngine` file. What does the code do?
 
    ```
-   //TODO
+*Réponse Val*   
+**Package et imports** :  
+Le package ch.heigvd.cld.lab est défini pour cette classe. Des importations de classes nécessaires sont incluses, notamment SystemProperty de Google App Engine et des classes Java Servlet. 
+ 
+**Servlet HelloAppEngine** :  
+Cette classe hérite de HttpServlet, ce qui en fait une servlet qui peut répondre aux requêtes HTTP.  La servlet est annotée avec @WebServlet, ce qui indique au conteneur de servlets comment mapper les requêtes HTTP à cette servlet. La servlet répond aux requêtes GET dans la méthode doGet. La réponse HTTP contient un message simple qui inclut la version de Java utilisée par l'application (SystemProperty.version.get()) et la version de la spécification Java (java.specification.version).  
+ 
+**Méthode getInfo** :  
+Une méthode statique getInfo est définie, qui renvoie des informations sur la version de Java, le système d'exploitation et le nom d'utilisateur.
    ```
 
 6. Note the annotation starting with `@WebServlet` in front of the
@@ -66,14 +74,26 @@ Create a simple web application as follows.
    `web.xml`. What information does it contain? And what is its use ?
 
    ```
-   //TODO
+*Réponse Val*   
+Ce fichier web.xml est utilisé pour configurer des paramètres et des comportements spécifiques de notre application web Java, comme la page d'accueil par défaut. Il est utilisé par le serveur d'application lors du déploiement de l'application web pour configurer le comportement de l'application.
+
+Voici ce que chaque partie de ce fichier signifie et son utilisation :
+
+?xml version="1.0" encoding="utf-8"? : Cette déclaration indique la version XML utilisée et l'encodage des caractères du fichier.  
+web-app : C'est l'élément racine du fichier web.xml et il définit le contexte de l'application web.  
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" : Cet attribut déclare l'espace de noms XML utilisé dans ce document, qui est défini par Java EE.  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" : Cet attribut déclare un autre espace de noms XML utilisé pour référencer le schéma XML.  
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" : Cet attribut indique l'emplacement du schéma XML utilisé pour valider ce fichier.  
+version="3.1" : Spécifie la version du descripteur de déploiement de l'application web.  
+welcome-file : Cet élément spécifie le fichier qui sera affiché par défaut lorsque l'utilisateur accède à la racine de l'application web. Dans cet exemple, le fichier index.jsp est défini comme page d'accueil par défaut.
    ```
 
 8. Inspect the Google App Engine configuration file
    `appengine-web.xml` in `webapp/WEB-INF`. What information does it contain?
 
    ```
-   //TODO
+*Réponse Val*   
+Le fichier appengine-web.xml définit les configurations de base nécessaires pour exécuter une application Java sur Google App Engine, y compris la version de la runtime, les paramètres de thread-safe et les propriétés système Java personnalisées.
    ```
 
 9. Edit the Google App Engine configuration file as follows:
@@ -85,7 +105,8 @@ Create a simple web application as follows.
     `index.jsp` spotted in `web.xml`. What is its use ?
 
     ```
-    //TODO
+*Réponse Val*   
+Le fichier index.jsp est généralement utilisé comme la page d'accueil par défaut d'une application web. Lorsqu'un utilisateur accède à la racine de l'application, le conteneur de servlets redirige automatiquement vers index.jsp s'il est configuré comme la page d'accueil dans le fichier web.xml.
     ```
 
 ---
@@ -154,18 +175,92 @@ Deliverables:
   you see in the **Java class files**, **web.xml**,
   **appengine-web.xml** and **index.jsp** files in a few sentences.
 
-  ```
-  //TODO Java class files
-  ```
 
-  ```
-  //TODO web.xml
-  ```
+```
+```
+package ch.heigvd.cld.lab;
 
-  ```
-  //TODO appengine-web.xml
-  ```
+import com.google.appengine.api.utils.SystemProperty;
 
-  ```
-  //TODO index.jsp
-  ```
+import java.io.IOException;
+import java.util.Properties;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(name = "HelloAppEngine", value = "/hello")
+public class HelloAppEngine extends HttpServlet {
+
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws IOException {
+
+    Properties properties = System.getProperties();
+
+    response.setContentType("text/plain");
+    response.getWriter().println("Hello App Engine - Standard using "
+        + SystemProperty.version.get() + " Java " + properties.get("java.specification.version"));
+  }
+
+  public static String getInfo() {
+    return "Version: " + System.getProperty("java.version")
+          + " OS: " + System.getProperty("os.name")
+          + " User: " + System.getProperty("user.name");
+  }
+
+}
+```
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
+```
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+<runtime>java11</runtime>
+<threadsafe>true</threadsafe>
+<system-properties>
+    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+</system-properties>
+<app-engine-apis>true</app-engine-apis>
+</appengine-web-app>
+       
+```
+
+```
+<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="ch.heigvd.cld.lab.HelloAppEngine" %>
+<html>
+<head>
+  <link href='//fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+  <title>Hello App Engine Standard Java 8</title>
+</head>
+<body>
+    <h1>Hello App Engine -- Java 8!</h1>
+
+  <p>This is <%= HelloAppEngine.getInfo() %>.</p>
+  <table>
+    <tr>
+      <td colspan="2" style="font-weight:bold;">Available Servlets:</td>
+    </tr>
+    <tr>
+      <td><a href='/hello'>Hello App Engine</a></td>
+    </tr>
+  </table>
+
+</body>
+</html>
+
+```
