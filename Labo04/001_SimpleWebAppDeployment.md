@@ -56,7 +56,7 @@ Create a simple web application as follows.
    `HelloAppEngine` file. What does the code do?
 
    ```
-Réponse Val
+Réponse Val  
 **Package et imports** :  
 Le package ch.heigvd.cld.lab est défini pour cette classe. Des importations de classes nécessaires sont incluses, notamment SystemProperty de Google App Engine et des classes Java Servlet. 
  
@@ -74,7 +74,18 @@ Une méthode statique getInfo est définie, qui renvoie des informations sur la 
    `web.xml`. What information does it contain? And what is its use ?
 
    ```
-   //TODO
+Réponse Val
+Ce fichier web.xml est utilisé pour configurer des paramètres et des comportements spécifiques de notre application web Java, comme la page d'accueil par défaut. Il est utilisé par le serveur d'application lors du déploiement de l'application web pour configurer le comportement de l'application.
+
+Voici ce que chaque partie de ce fichier signifie et son utilisation :
+
+<?xml version="1.0" encoding="utf-8"?> : Cette déclaration indique la version XML utilisée et l'encodage des caractères du fichier.  
+<web-app> : C'est l'élément racine du fichier web.xml et il définit le contexte de l'application web.  
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" : Cet attribut déclare l'espace de noms XML utilisé dans ce document, qui est défini par Java EE.  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" : Cet attribut déclare un autre espace de noms XML utilisé pour référencer le schéma XML.  
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" : Cet attribut indique l'emplacement du schéma XML utilisé pour valider ce fichier.  
+version="3.1" : Spécifie la version du descripteur de déploiement de l'application web.  
+<welcome-file> : Cet élément spécifie le fichier qui sera affiché par défaut lorsque l'utilisateur accède à la racine de l'application web. Dans cet exemple, le fichier index.jsp est défini comme page d'accueil par défaut.
    ```
 
 8. Inspect the Google App Engine configuration file
