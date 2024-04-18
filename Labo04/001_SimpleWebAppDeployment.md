@@ -56,7 +56,7 @@ Create a simple web application as follows.
    `HelloAppEngine` file. What does the code do?
 
    ```
-*Réponse Val*  
+*Réponse Val*   
 **Package et imports** :  
 Le package ch.heigvd.cld.lab est défini pour cette classe. Des importations de classes nécessaires sont incluses, notamment SystemProperty de Google App Engine et des classes Java Servlet. 
  
@@ -74,7 +74,7 @@ Une méthode statique getInfo est définie, qui renvoie des informations sur la 
    `web.xml`. What information does it contain? And what is its use ?
 
    ```
-*Réponse Val*
+*Réponse Val*   
 Ce fichier web.xml est utilisé pour configurer des paramètres et des comportements spécifiques de notre application web Java, comme la page d'accueil par défaut. Il est utilisé par le serveur d'application lors du déploiement de l'application web pour configurer le comportement de l'application.
 
 Voici ce que chaque partie de ce fichier signifie et son utilisation :
@@ -92,7 +92,8 @@ welcome-file : Cet élément spécifie le fichier qui sera affiché par défaut 
    `appengine-web.xml` in `webapp/WEB-INF`. What information does it contain?
 
    ```
-   //TODO
+*Réponse Val*   
+Le fichier appengine-web.xml définit les configurations de base nécessaires pour exécuter une application Java sur Google App Engine, y compris la version de la runtime, les paramètres de thread-safe et les propriétés système Java personnalisées.
    ```
 
 9. Edit the Google App Engine configuration file as follows:
