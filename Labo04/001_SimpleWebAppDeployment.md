@@ -175,7 +175,9 @@ Deliverables:
   you see in the **Java class files**, **web.xml**,
   **appengine-web.xml** and **index.jsp** files in a few sentences.
 
-  ```
+
+```
+```
 package ch.heigvd.cld.lab;
 
 import com.google.appengine.api.utils.SystemProperty;
@@ -209,9 +211,9 @@ public class HelloAppEngine extends HttpServlet {
   }
 
 }
-  ```
+```
 
-  ```
+```
 <?xml version="1.0" encoding="utf-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -221,9 +223,9 @@ public class HelloAppEngine extends HttpServlet {
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
-  ```
+```
 
-  ```
+```
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
 <runtime>java11</runtime>
@@ -233,9 +235,10 @@ public class HelloAppEngine extends HttpServlet {
 </system-properties>
 <app-engine-apis>true</app-engine-apis>
 </appengine-web-app>
-  ```
+       
+```
 
-  ```
+```
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="ch.heigvd.cld.lab.HelloAppEngine" %>
@@ -259,4 +262,5 @@ public class HelloAppEngine extends HttpServlet {
 
 </body>
 </html>
-  ```
+
+```
