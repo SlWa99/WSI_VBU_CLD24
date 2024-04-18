@@ -56,11 +56,11 @@ Create a simple web application as follows.
    `HelloAppEngine` file. What does the code do?
 
    ```
-Package et imports :  
+**Package et imports** :  
 Le package ch.heigvd.cld.lab est défini pour cette classe. Des importations de classes nécessaires sont incluses, notamment SystemProperty de Google App Engine et des classes Java Servlet.  
-Servlet HelloAppEngine :  
+**Servlet HelloAppEngine** :  
 Cette classe hérite de HttpServlet, ce qui en fait une servlet qui peut répondre aux requêtes HTTP.  La servlet est annotée avec @WebServlet, ce qui indique au conteneur de servlets comment mapper les requêtes HTTP à cette servlet. La servlet répond aux requêtes GET dans la méthode doGet. La réponse HTTP contient un message simple qui inclut la version de Java utilisée par l'application (SystemProperty.version.get()) et la version de la spécification Java (java.specification.version).
-Méthode getInfo :  
+**Méthode getInfo** :  
 Une méthode statique getInfo est définie, qui renvoie des informations sur la version de Java, le système d'exploitation et le nom d'utilisateur.
    ```
 
