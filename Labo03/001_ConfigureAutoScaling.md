@@ -14,7 +14,7 @@
 * 1 RDS Database instance - started
 * 1 Elastic Load Balancer - started
 
-## Create a new launch configuration. 
+## Create a new launch template. 
 
 |Key|Value|
 |:--|:--|
@@ -64,6 +64,7 @@ aws ec2 create-launch-template \
     "Enabled": true
   }
 }'
+
 
 [OUTPUT]
 ```
@@ -123,7 +124,6 @@ aws autoscaling put-scaling-policy \
   "TargetValue": 50,
   "InstanceWarmup": 30
 }'
-
 [OUTPUT]
 ```
 
