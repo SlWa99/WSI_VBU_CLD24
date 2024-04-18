@@ -89,6 +89,6 @@ Dans le fichier ![java](figures/DatastoreWrite.java)
 ```
 //TODO - Copy a screenshot of the local and the App Engine console with the Datastore Viewer.
 ```
-![screenshot](figures/local and the App Engine console with the Datastore Viewer.png)
+![screenshot](figures/Datastore_Viewer.png)
 
 
