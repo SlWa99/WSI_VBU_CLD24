@@ -96,12 +96,13 @@ Deliverables:
   ```
   //TODO
   ```
+![quotas](figures/quotas.png)
 
 - Let's suppose you become suspicious that the algorithm for the automatic scaling of
   instances is not working correctly. Imagine a way in which the algorithm could be broken. Which measures shown in the console would you use to detect this failure?
 
   ```
-  //TODO
+  Lorsque des suspicions émergent concernant le dysfonctionnement de l'algorithme de mise à l'échelle automatique des instances, plusieurs indicateurs clés doivent être surveillés. Le nombre d'instances devrait varier proportionnellement au trafic entrant ; une corrélation absente pourrait signaler une anomalie. Des augmentations significatives de la latence ou du taux d'erreur peuvent également refléter une incapacité des instances à gérer la charge de travail, suggérant que la mise à l'échelle ne se produit pas adéquatement. Par ailleurs, une utilisation élevée et soutenue des ressources CPU indique potentiellement que l'ajout d'instances supplémentaires est nécessaire pour distribuer efficacement la charge. Enfin, une consommation rapide des quotas et l'accumulation de requêtes dans la file d'attente sans augmentation du nombre d'instances pourraient confirmer des défaillances dans l'algorithme de mise à l'échelle automatique. Ces mesures, examinées conjointement, sont essentielles pour diagnostiquer l'efficacité de la mise à l'échelle en réponse aux variations de la demande.
   ```
 
 ## Troubleshooting
