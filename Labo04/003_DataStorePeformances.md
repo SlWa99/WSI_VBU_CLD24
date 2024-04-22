@@ -65,6 +65,7 @@ Deliverables:
   Fichier de Sortie Vegeta : Après avoir exécuté votre attaque, utilisez la commande vegeta plot pour générer une visualisation des 
   > cat results.bin | vegeta plot > plot.html
   ```
+![Vegeta](figures/vegeta-plot.png)
  
 - What response times do you observe for each Servlet?
 
