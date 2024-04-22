@@ -83,7 +83,9 @@ Deliverables:
   console. Explain the difference.
 
   ```
-  //TODO
+  Observations du graphique Vegeta :
+  Les temps de latence semblent fluctuer avec le temps, la plupart des réponses se trouvant dans une bande inférieure avec plusieurs pics atteignant des latences plus élevées.
+  Ces pics peuvent indiquer des moments où le serveur subit une charge plus élevée ou traite des transactions plus complexes qui prennent plus de temps à compléter.
   ```
 
 - How many resources have you used to run these tests? From the
