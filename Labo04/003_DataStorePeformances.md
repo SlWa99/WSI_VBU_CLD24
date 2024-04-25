@@ -84,6 +84,9 @@ Deliverables:
 - Compare the response times shown by vegeta with the App Engine
   console. Explain the difference.
 
+  ![App Engine](figures/app-engine.png)
+
+
   ```
   Observations du graphique Vegeta :
   Les temps de latence semblent fluctuer avec le temps, la plupart des réponses se trouvant dans une bande inférieure avec plusieurs pics atteignant des latences plus élevées.
