@@ -101,7 +101,7 @@ Deliverables:
   quotas (**Daily quota** different from 0%). Explain each with a sentence.
   To get a sense of everything that is measured click on **Show resources not in use**.
 
-  ```
+
   Voici une explication de chaque ressource listée et de son utilisation :
 
   **1. Cloud Firestore Read Operations**: 0.000013 million d'opérations ont été effectuées aujourd'hui, ce qui est en dessous de tout quota quotidien ou par minute, indiquant une utilisation normale sans atteindre de limite de quota.
@@ -123,7 +123,7 @@ Deliverables:
   **9. Cloud Firestore Network Egress**: Un très faible volume de données de 0.000003 GB a quitté le réseau Firestore, ce qui est loin de dépasser un quelconque quota.
 
   **10. Cloud Storage Network (Egress) - Americas and EMEA**: Il y a eu une très petite quantité de données, 0.000089 GB, qui ont été transférées hors du Cloud Storage, mais cela reste en dessous de tout quota.  
-  ```
+  
   
 - Let's suppose you become suspicious that the algorithm for the automatic scaling of
   instances is not working correctly. Imagine a way in which the algorithm could be broken. Which measures shown in the console would you use to detect this failure?
