@@ -102,7 +102,22 @@ Deliverables:
   To get a sense of everything that is measured click on **Show resources not in use**.
 
   ```
-  //TODO
+Voici une explication de chaque ressource listée et de son utilisation :
+
+Cloud Firestore Read Operations : 0.000013 million d'opérations ont été effectuées aujourd'hui, ce qui est en dessous de tout quota quotidien ou par minute, indiquant une utilisation normale sans atteindre de limite de quota.
+Cloud Firestore API Calls : 2 294 appels ont été faits, ce qui est en dessous de tout quota quotidien ou par minute, ce qui indique une utilisation normale sans dépasser de quota.
+Cloud Firestore Stored Data : 0.00027 GB de données sont actuellement stockées, sans atteindre de quota, montrant une utilisation légère de l'espace de stockage Firestore.
+Data Sent to Cloud Firestore API : 0.00028 GB de données ont été envoyées à Firestore aujourd'hui, ce qui ne dépasse aucun quota établi.
+Data Received from Cloud Firestore API : 0.00017 GB de données ont été reçues de Firestore, également en dessous de tout quota quotidien.
+Cloud Firestore Entity Fetch Ops : 13 opérations de récupération d'entité ont été réalisées, une quantité minime qui reste dans les limites normales d'utilisation.
+Cloud Firestore Entity Writes : Il y a eu 0.0023 million d'opérations d'écriture sur des entités aujourd'hui, ce qui reste en dessous de tout quota.
+Cloud Firestore Index Write Ops : Seulement 5 opérations d'écriture d'index ont été comptabilisées, indiquant une utilisation très basse de cette ressource.
+Cloud Firestore Network Egress : Un très faible volume de données de 0.000003 GB a quitté le réseau Firestore, ce qui est loin de dépasser un quelconque quota.
+Les trois dernières ressources listées sont des opérations de stockage dans le Cloud :
+
+Cloud Storage Class B Operations : Aucune opération de classe B n'a été réalisée aujourd'hui.
+Cloud Storage Class A Operations : Aucune opération de classe A n'a été réalisée non plus.
+Cloud Storage Network (Egress) - Americas and EMEA : Il y a eu une très petite quantité de données, 0.000089 GB, qui ont été transférées hors du Cloud Storage, mais cela reste en dessous de tout quota.
   ```
 ![quotas](figures/quotas.png)
 
