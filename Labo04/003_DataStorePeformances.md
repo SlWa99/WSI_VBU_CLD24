@@ -93,7 +93,9 @@ Deliverables:
 
 
   ```
-  En comparaison avec les graphiques générés par l'outil Vegeta, nous pouvons constater que le temps nécessaire pour réaliser notre série d'attaques prend plus de temps que prévu. En effet, selon notre commande notre attaque doit durer 1 minute et en réalité (selon le graphique) elle dure environ 5 minutes.
+  En comparaison avec les graphiques générés par l'outil Vegeta, nous pouvons constater que le temps nécessaire pour réaliser notre série d'attaques prend plus de temps que prévu.
+
+  En effet, selon notre commande notre attaque doit durer 1 minute et en réalité (selon le graphique) elle dure environ 5 minutes.
   ```
 
 - How many resources have you used to run these tests? From the
