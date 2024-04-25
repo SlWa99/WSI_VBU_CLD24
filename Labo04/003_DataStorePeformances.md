@@ -124,8 +124,6 @@ Voici une explication de chaque ressource listée et de son utilisation :
 
 **10. Cloud Storage Network (Egress) - Americas and EMEA**: Il y a eu une très petite quantité de données, 0.000089 GB, qui ont été transférées hors du Cloud Storage, mais cela reste en dessous de tout quota.  
   ```
-![quotas](figures/quotas.png)
-
 - Let's suppose you become suspicious that the algorithm for the automatic scaling of
   instances is not working correctly. Imagine a way in which the algorithm could be broken. Which measures shown in the console would you use to detect this failure?
 
