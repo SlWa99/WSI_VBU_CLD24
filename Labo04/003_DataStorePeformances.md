@@ -102,28 +102,29 @@ Deliverables:
   To get a sense of everything that is measured click on **Show resources not in use**.
 
   ```
-Voici une explication de chaque ressource listée et de son utilisation :
+  Voici une explication de chaque ressource listée et de son utilisation :
 
-**1. Cloud Firestore Read Operations**: 0.000013 million d'opérations ont été effectuées aujourd'hui, ce qui est en dessous de tout quota quotidien ou par minute, indiquant une utilisation normale sans atteindre de limite de quota.  
+  **1. Cloud Firestore Read Operations**: 0.000013 million d'opérations ont été effectuées aujourd'hui, ce qui est en dessous de tout quota quotidien ou par minute, indiquant une utilisation normale sans atteindre de limite de quota.
 
-**2. Cloud Firestore API Calls**: 2 294 appels ont été faits, ce qui est en dessous de tout quota quotidien ou par minute, ce qui indique une utilisation normale sans dépasser de quota.  
+  **2. Cloud Firestore API Calls**: 2 294 appels ont été faits, ce qui est en dessous de tout quota quotidien ou par minute, ce qui indique une utilisation normale sans dépasser de quota.
 
-**3. Cloud Firestore Stored Data**: 0.00027 GB de données sont actuellement stockées, sans atteindre de quota, montrant une utilisation légère de l'espace de stockage Firestore.  
+  **3. Cloud Firestore Stored Data**: 0.00027 GB de données sont actuellement stockées, sans atteindre de quota, montrant une utilisation légère de l'espace de stockage Firestore.
 
-**4. Data Sent to Cloud Firestore API** : 0.00028 GB de données ont été envoyées à Firestore aujourd'hui, ce qui ne dépasse aucun quota établi.  
+  **4. Data Sent to Cloud Firestore API** : 0.00028 GB de données ont été envoyées à Firestore aujourd'hui, ce qui ne dépasse aucun quota établi.
 
-**5. Data Received from Cloud Firestore API**: 0.00017 GB de données ont été reçues de Firestore, également en dessous de tout quota quotidien.  
+  **5. Data Received from Cloud Firestore API**: 0.00017 GB de données ont été reçues de Firestore, également en dessous de tout quota quotidien.
 
-**6. Cloud Firestore Entity Fetch Ops**: 13 opérations de récupération d'entité ont été réalisées, une quantité minime qui reste dans les limites normales d'utilisation.  
+  **6. Cloud Firestore Entity Fetch Ops**: 13 opérations de récupération d'entité ont été réalisées, une quantité minime qui reste dans les limites normales d'utilisation.
 
-**7. Cloud Firestore Entity Writes** : Il y a eu 0.0023 million d'opérations d'écriture sur des entités aujourd'hui, ce qui reste en dessous de tout quota.  
+  **7. Cloud Firestore Entity Writes** : Il y a eu 0.0023 million d'opérations d'écriture sur des entités aujourd'hui, ce qui reste en dessous de tout quota.
 
-**8. Cloud Firestore Index Write Ops** : Seulement 5 opérations d'écriture d'index ont été comptabilisées, indiquant une utilisation très basse de cette ressource.
+  **8. Cloud Firestore Index Write Ops** : Seulement 5 opérations d'écriture d'index ont été comptabilisées, indiquant une utilisation très basse de cette ressource.
 
-**9. Cloud Firestore Network Egress**: Un très faible volume de données de 0.000003 GB a quitté le réseau Firestore, ce qui est loin de dépasser un quelconque quota.  
+  **9. Cloud Firestore Network Egress**: Un très faible volume de données de 0.000003 GB a quitté le réseau Firestore, ce qui est loin de dépasser un quelconque quota.
 
-**10. Cloud Storage Network (Egress) - Americas and EMEA**: Il y a eu une très petite quantité de données, 0.000089 GB, qui ont été transférées hors du Cloud Storage, mais cela reste en dessous de tout quota.  
+  **10. Cloud Storage Network (Egress) - Americas and EMEA**: Il y a eu une très petite quantité de données, 0.000089 GB, qui ont été transférées hors du Cloud Storage, mais cela reste en dessous de tout quota.  
   ```
+  
 - Let's suppose you become suspicious that the algorithm for the automatic scaling of
   instances is not working correctly. Imagine a way in which the algorithm could be broken. Which measures shown in the console would you use to detect this failure?
 
