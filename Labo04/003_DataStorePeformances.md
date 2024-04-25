@@ -93,9 +93,7 @@ Deliverables:
 
 
   ```
-  Observations du graphique Vegeta :
-  Les temps de latence semblent fluctuer avec le temps, la plupart des réponses se trouvant dans une bande inférieure avec plusieurs pics atteignant des latences plus élevées.
-  Ces pics peuvent indiquer des moments où le serveur subit une charge plus élevée ou traite des transactions plus complexes qui prennent plus de temps à compléter.
+  En comparaison avec les graphiques générés par l'outil Vegeta, nous pouvons constater que le temps nécessaire pour réaliser notre série d'attaques prend plus de temps que prévu. En effet, selon notre commande notre attaque doit durer 1 minute et en réalité (selon le graphique) elle dure environ 5 minutes.
   ```
 
 - How many resources have you used to run these tests? From the
