@@ -81,9 +81,7 @@ Deliverables:
   
   Pour la version locale, le spectre de valeur s'étend entre 3 ms et 45 ms. Pour la version déploiement, le spectre de valeur varie entre 40 ms et 200 ms
 
-  En outre, cela signifie que la version déploiement prend plus de temps à traiter une requête que la version local. Cela est tout à fait normal, car la version déploiement échangée avec Google Cloud Console.
-
-  De plus, nous pouvons voir que nous obtenons des piques plus élevés que d'autres. Ces piques sont présents environ toutes les 10 secondes, car c'est ce que nous avons paramétré dans notre commande du stress test.
+  En outre, cela signifie que la version déploiement prend plus de temps à traiter une requête que la version local. Cela est tout à fait normal, car la version déploiement doit échanger avec Google Cloud Console.
   ```
   
 - Compare the response times shown by vegeta with the App Engine
