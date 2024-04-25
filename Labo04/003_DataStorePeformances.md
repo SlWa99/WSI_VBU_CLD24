@@ -75,7 +75,14 @@ Deliverables:
 - What response times do you observe for each Servlet?
   
   ```
-  //TODO
+  Ces graphiques représentent le temps qui est nécessaire pour traiter une requête.
+  En comparant ces deux images, nous pouvons nous apercevoir que le range des valeurs n'est pas le même entre le déploiement local et sur Google cloud
+  
+  Pour la version locale, le spectre de valeur s'étend entre 3 ms et 45 ms. Pour la version déploiement, le spectre de valeur varie entre 40 ms et 200 ms
+
+  En outre, cela signifie que la version déploiement prend plus de temps à traiter une requête que la version local. Cela est tout à fait normal, car la version déploiement échangée avec Google Cloud Console.
+
+  De plus, nous pouvons voir que nous obtenons des piques plus élevés que d'autres. Ces piques sont présents environ toutes les 10 secondes, car c'est ce que nous avons paramétré dans notre commande du stress test.
   ```
   
 
