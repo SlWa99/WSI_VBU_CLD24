@@ -18,7 +18,7 @@ Converting a Pod to be managed by a Deployment is quite simple.
 
   * Use only 1 instance for the Redis-Server. Why?
 
-    > // TODO
+    > Utilisez seulement 1 instance pour Redis car c’est une base de données qui ne doit pas avoir de multiples instances en écriture pour éviter les conflits de synchronisation.
 
   * Delete all application Pods (using `kubectl delete pod ...`) and replace them with deployment versions.
 
@@ -43,11 +43,18 @@ $ kubectl get pods --watch
 You may also use `kubectl get all` repeatedly to see a list of all resources.  You should also verify if the application stays available by continuously reloading your browser window.
 
   * What happens if you delete a Frontend or API Pod? How long does it take for the system to react?
-    > // TODO
+    > Kubernetes détecte la suppression du Pod presque instantanément grâce au kube-apiserver qui est constamment informé des changements dans l'état du cluster.
+
+    > Le Pod est marqué pour suppression. Kubernetes envoie un signal de terminaison (graceful termination) au Pod, permettant aux conteneurs de s'arrêter proprement. Ce délai de terminaison est configurable et par défaut, il est de 30 secondes. Cependant, si le Pod ne se termine pas dans ce délai, il est forcé à se terminer.
+
+    > Si le Pod appartient à un ReplicaSet ou un Deployment, le contrôleur de ReplicaSet ou de Deployment remarque la réduction du nombre de Pods et crée immédiatement un nouveau Pod pour maintenir l'état désiré.
+
+    > Le temps de réaction total varie mais est généralement assez rapide : 
+Détection et suppression du Pod : Quelques secondes à une minute, incluant le délai de terminaison configuré. Création et démarrage d'un nouveau Pod : De quelques secondes à plusieurs minutes, selon les circonstances mentionnées ci-dessus.
     
   * What happens when you delete the Redis Pod?
 
-    > // TODO
+    > Il se passe la même chose que pour un pod API ou Frontend. Toutefois, Pendant le processus de remplacement, il peut y avoir une perturbation temporaire des services qui dépendent de Redis, surtout si le Pod supprimé était un nœud unique sans haute disponibilité configurée. De plus, si Redis est déployé avec une configuration de haute disponibilité, d'autres nœuds Redis peuvent prendre le relais pendant la transition, minimisant ainsi l'impact.
     
   * How can you change the number of instances temporarily to 3? Hint: look for scaling in the deployment documentation
 
