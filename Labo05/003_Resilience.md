@@ -123,7 +123,18 @@ Load-test using Vegeta (500 requests should be enough).
 >             requests:
 >               cpu: 10m
 >     ```
->
+
+```Stress test
+kubectl autoscale deployment frontend-deployment --cpu-percent=30 --min=1 --max=4
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+echo "GET http://35.198.158.211" | vegeta attack -duration=20s -rate=500 | vegeta report
+kubectl get hpa --watch
+kubectl get pods --watch
+
+![hpa watch](./img/subtask3.3_hpaWatch.png)
+
+![Pods](./img/subtask3.3_pods.png)
+```
 
 ## Deliverables
 
