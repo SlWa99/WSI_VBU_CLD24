@@ -59,7 +59,7 @@ Now you can verify if the ToDo application is working correctly.
 
   * Find out the public URL of the Frontend Service load balancer using `kubectl describe`.
   * Access the public URL of the Service with a browser. You should be able to access the complete application and create a new ToDo.
-
+![Url todo app](./img/Todo_url.png)
 
 ## Deliverables
 
