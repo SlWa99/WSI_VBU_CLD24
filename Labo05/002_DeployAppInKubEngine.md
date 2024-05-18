@@ -73,6 +73,23 @@ Document any difficulties you faced and how you overcame them. Copy the object d
 
 ```yaml
 # frontend-svc.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: frontend
+  name: frontend-svc
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: frontend
+  selector:
+    app: todo
+    component: frontend
+  type: LoadBalancer
 ```
 
 Take a screenshot of the cluster details from the GKE console. Copy the output of the `kubectl describe` command to describe your load balancer once completely initialized.
