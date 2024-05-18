@@ -99,3 +99,4 @@ Take a screenshot of the cluster details from the GKE console. Copy the output o
 ```````
 // TODO object descriptions
 ```````
+![cluster gke descibes](./img/subtask2.4_describes.png)
